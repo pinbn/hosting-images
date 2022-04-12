@@ -6,9 +6,14 @@ services:
     restart: always
     deploy:
       labels:
-        - traefik.enable=true
-        # - traefik.frontend.rule=Host:sitename.clientdomain.com # Traefik 1
-        - traefik.http.routers.rule=Host(`sitename.clientdomain.com`) # Traefik 2
+        # Traefik 1:
+        # - traefik.enable=true
+        # - traefik.backend=testsite
+        # - traefik.testsite.frontend.rule=Host:sitename.clientdomain.com
+        # - traefik.port=80
+        # Traefik 2:
+        # - traefik.enable=true
+        # - traefik.http.routers.rule=Host(`sitename.clientdomain.com`)
     networks:
       - traefik
     volumes:
