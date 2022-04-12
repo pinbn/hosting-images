@@ -18,7 +18,7 @@ memory_limit = <?= myenv("php_memory_limit", "20M") ?>
 error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE
 display_errors = Off
 display_startup_errors = Off
-date.timezone = America/Denver
+date.timezone = <?= myenv("php_timezone", "America/Denver") ?>
 log_errors = On
 log_errors_max_len = 1024
 open_basedir = /var/www/html/:/usr/share/fonts/:/tmp/
@@ -60,9 +60,9 @@ cli_server.color = On
 
 [mail function]
 SMTP = <?= myenv("php_smtp_server", "localhost") ?>
-smtp_port = <?= myenv("php_smtp_port"] ?? "25") ?>
+smtp_port = <?= myenv("php_smtp_port", "25") ?>
 mail.add_x_header = On
-mail.log = /var/log/php.mail.log
+mail.log = <?= myenv("php_smtp_log", "/var/log/php.mail.log") ?>
 
 [SQL]
 sql.safe_mode = Off
