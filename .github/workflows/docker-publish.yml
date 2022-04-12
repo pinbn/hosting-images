@@ -19,10 +19,8 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,37 +28,36 @@ jobs:
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
-
     strategy:
       fail-fast: false
       matrix:
         include:
           - dockerfile: ./php-5.6/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:5.6
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:5.6
           - dockerfile: ./php-7.0/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.0
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.0
           - dockerfile: ./php-7.1/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.1
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.1
           - dockerfile: ./php-7.2Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.2
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.2
           - dockerfile: ./php-7.3/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.3
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.3
           - dockerfile: ./php-7.4/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.5
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:7.5
           - dockerfile: ./php-8.0/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:8.0
-
+            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:8.0
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Install the cosign tool except on PR
-      # https://github.com/sigstore/cosign-installer
-      - name: Install cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
-        with:
-          cosign-release: 'v1.7.1'
+# Not used at this time
+#      # Install the cosign tool except on PR
+#      # https://github.com/sigstore/cosign-installer
+#      - name: Install cosign
+#        if: github.event_name != 'pull_request'
+#        uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
+#        with:
+#          cosign-release: 'v1.7.1'
 
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
