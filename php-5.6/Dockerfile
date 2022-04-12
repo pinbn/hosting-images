@@ -4,10 +4,6 @@ HEALTHCHECK --interval=15s --timeout=30s --retries=3 CMD curl --fail http://127.
 VOLUME /var/www/html
 VOLUME /var/log/nginx
 
-# specified here for consistency between setups
-RUN (delgroup www-data || true) && \
-    groupadd -r www-data -g 33 && \
-    useradd -r -g www-data -u 33 -d /var/www/html/ www-data
 # install our deps
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
