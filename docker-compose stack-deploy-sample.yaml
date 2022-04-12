@@ -16,7 +16,7 @@ services:
       - /data/www/client/sitename/logs:/var/log/nginx
 
 networks:
-    hosting:
+    traefik:
       external:
         name: traefik
         
