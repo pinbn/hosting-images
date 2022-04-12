@@ -1,0 +1,38 @@
+version: '3.3'
+
+services:
+  php-5.6:
+    image: ghcr.io/pinbn/php-docker:5.6
+    build: 
+      dockerfile: php-5.6/Dockerfile
+      context: .
+  php-7.0:
+    image: ghcr.io/pinbn/php-docker:7.0
+    build: 
+      dockerfile: php-7.0/Dockerfile
+      context: .
+  php-7.1:
+    image: ghcr.io/pinbn/php-docker:7.1
+    build: 
+      dockerfile: php-7.1/Dockerfile
+      context: .
+  php-7.2:
+    image: ghcr.io/pinbn/php-docker:7.2
+    build: 
+      dockerfile: php-7.2/Dockerfile
+      context: .
+  php-7.3:
+    image: ghcr.io/pinbn/php-docker:7.3
+    build: 
+      dockerfile: php-7.3/Dockerfile
+      context: .
+  php-7.4:
+    image: ghcr.io/pinbn/php-docker:7.4
+    build: 
+      dockerfile: php-7.4/Dockerfile
+      context: .
+  php-8.0:
+    image: ghcr.io/pinbn/php-docker:8.0
+    build: 
+      dockerfile: php-8.0/Dockerfile
+      context: .

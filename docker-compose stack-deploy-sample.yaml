@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  web:
+    image: ghcr.io/pinbn/hosting-php:8.0
+    restart: always
+    deploy:
+      labels:
+        - traefik.enable=true
+        # - traefik.frontend.rule=Host:sitename.clientdomain.com # Traefik 1
+        - traefik.http.routers.rule=Host(`sitename.clientdomain.com`) # Traefik 2
+    networks:
+      - traefik
+    volumes:
+      - /data/www/client/sitename/site:/var/www/html
+      - /data/www/client/sitename/logs:/var/log/nginx
+
+networks:
+    hosting:
+      external:
+        name: traefik
+        
