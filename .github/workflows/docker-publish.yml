@@ -98,7 +98,7 @@ jobs:
           context: .
           file: ${{ matrix.dockerfile }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ matrix.tag }}
+          tags: ${{ matrix.image }}
           #labels: ${{ steps.meta.outputs.labels }}
 
 # Not used at this time
