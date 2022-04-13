@@ -1,3 +1,5 @@
+[![Docker](https://github.com/pinbn/hosting-php/actions/workflows/docker-publish.yml/badge.svg?branch=main)](https://github.com/pinbn/hosting-php/actions/workflows/docker-publish.yml)
+
 # PHP in Docker
 We needed a way for some of our clients to run websites using separate versions of PHP, and Docker fit the bill perfectly!
 
