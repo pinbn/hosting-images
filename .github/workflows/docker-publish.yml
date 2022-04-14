@@ -56,6 +56,9 @@ jobs:
           - dockerfile: ./php-8.1/Dockerfile
             image: ghcr.io/${{ github.repository }}:8.1
             tag: 8.1
+          - dockerfile: ./plain/Dockerfile
+            image: ghcr.io/${{ github.repository }}:plain
+            tag: plain
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
