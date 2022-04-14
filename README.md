@@ -1,7 +1,7 @@
 [![Docker](https://github.com/pinbn/hosting-php/actions/workflows/docker-publish.yml/badge.svg?branch=main)](https://github.com/pinbn/hosting-php/actions/workflows/docker-publish.yml)
 
 # PHP in Docker
-We needed a way for some of our clients to run websites using separate versions of PHP, and Docker fit the bill perfectly!
+We needed a way for some of our clients to run websites using separate versions of PHP (or no PHP at all), and Docker fit the bill perfectly!
 
 # Volumes
 Mount `/var/www/html` to your website's content directory. Normal site logs are emitted via the console/stdout/stderr, but nginx logs not within a site may be contained in `/var/log/nginx`.
