@@ -36,3 +36,13 @@ services:
     build: 
       dockerfile: php-8.0/Dockerfile
       context: .
+  php-8.1:
+    image: ghcr.io/pinbn/php-docker:8.1
+    build: 
+      dockerfile: php-8.1/Dockerfile
+      context: .
+  plain:
+    image: ghcr.io/pinbn/php-docker:plain
+    build: 
+      dockerfile: plain/Dockerfile
+      context: .
