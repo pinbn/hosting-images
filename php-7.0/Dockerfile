@@ -7,7 +7,7 @@ VOLUME /var/log/nginx
 # install our deps
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -y supervisor composer software-properties-common tzdata && \
+    apt-get install -y supervisor wget composer software-properties-common tzdata && \
     wget -qO - https://nginx.org/keys/nginx_signing.key | apt-key add - && \
     add-apt-repository ppa:ondrej/php && \
     echo "deb https://nginx.org/packages/mainline/ubuntu/ focal nginx" > /etc/apt/sources.list.d/nginx.list && \
@@ -16,6 +16,7 @@ RUN apt-get update && \
     apt-get install -y nginx php7.0-common composer memcached php-memcache php-pear php7.0-cli \
       php7.0-fpm php7.0-gd php-geoip php7.0-json php7.0-mysql php7.0-opcache php7.0-mbstring \
       php7.0-xml php7.0-pgsql php7.0-pspell php7.0-readline php7.0-tidy php7.0-bcmath php7.0-gmp && \
+    dpkg -r wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app
