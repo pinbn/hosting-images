@@ -20,6 +20,5 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app
-RUN sed -i '/## LOCATION BLOCKS ##/  include /app/nginx-php.conf;/' /app/nginx.conf
 RUN ln -s /usr/sbin/php-fpm7.2 /app/php-fpm    
 CMD ["/bin/sh","/app/start.sh"]

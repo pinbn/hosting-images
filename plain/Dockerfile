@@ -17,5 +17,8 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app
-RUN sed -i '/## LOCATION BLOCKS ##/  include /app/nginx-plain.conf;/' /app/nginx.conf
+# override the PHP bits and remove any PHP "scripts"
+COPY ./app/plain-overrides /app 
+RUN rm /app/*php*
+
 CMD ["/bin/sh","/app/start.sh"]
