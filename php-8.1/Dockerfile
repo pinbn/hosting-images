@@ -15,7 +15,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y nginx php8.1-common memcached php8.1-memcache php-pear php8.1-cli \
-      php8.1-fpm php8.1-gd php8.1-mysql php8.1-opcache php8.1-mbstring \
+      php8.1-fpm php8.1-gd php8.1-mysql php8.1-opcache php8.1-mbstring php8.1-zip \
       php8.1-xml php8.1-pgsql php8.1-pspell php8.1-readline php8.1-tidy php8.1-bcmath php8.1-gmp && \
     dpkg -r wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/*

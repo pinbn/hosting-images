@@ -15,7 +15,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y nginx php7.3-common memcached php7.3-memcache php-pear php7.3-cli \
-      php7.3-fpm php7.3-gd php7.3-geoip php7.3-json php7.3-mysql php7.3-opcache php7.3-mbstring \
+      php7.3-fpm php7.3-gd php7.3-geoip php7.3-json php7.3-mysql php7.3-opcache php7.3-mbstring php7.3-zip \
       php7.3-xml php7.3-pgsql php7.3-pspell php7.3-readline php7.3-tidy php7.3-bcmath php7.3-gmp && \
     dpkg -r wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
