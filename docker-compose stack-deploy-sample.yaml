@@ -21,6 +21,8 @@ services:
     volumes:
       - /data/www/client/sitename/site:/var/www/html
       - /data/www/client/sitename/logs:/var/log/nginx
+    environment:
+      # This is default: - NGINX_USER=www-data
 
 networks:
     traefik:
