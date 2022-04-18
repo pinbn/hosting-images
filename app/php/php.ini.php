@@ -12,8 +12,8 @@ disable_functions = pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexi
 disable_classes =
 zend.enable_gc = On
 expose_php = Off
-max_execution_time = 300
-max_input_time = 60
+max_execution_time = <?= myenv("php_max_execution_time", "300") ?>
+max_input_time = <?= myenv("php_input_time", "60") ?>
 memory_limit = <?= myenv("php_memory_limit", "20M") ?>
 error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE
 display_errors = Off
