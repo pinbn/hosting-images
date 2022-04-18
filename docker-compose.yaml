@@ -6,40 +6,80 @@ services:
     build: 
       dockerfile: php-5.6/Dockerfile
       context: .
+  php-5.6-wordpress:
+    image: ghcr.io/pinbn/php-docker:5.6-wordpress
+    build: 
+      dockerfile: php-5.6-wordpress/Dockerfile
+      context: .
   php-7.0:
     image: ghcr.io/pinbn/php-docker:7.0
     build: 
       dockerfile: php-7.0/Dockerfile
+      context: .
+  php-7.0-wordpress:
+    image: ghcr.io/pinbn/php-docker:7.0-wordpress
+    build: 
+      dockerfile: php-7.0-wordpress/Dockerfile
       context: .
   php-7.1:
     image: ghcr.io/pinbn/php-docker:7.1
     build: 
       dockerfile: php-7.1/Dockerfile
       context: .
+  php-7.1-wordpress:
+    image: ghcr.io/pinbn/php-docker:7.1-wordpress
+    build: 
+      dockerfile: php-7.1-wordpress/Dockerfile
+      context: .
   php-7.2:
     image: ghcr.io/pinbn/php-docker:7.2
     build: 
       dockerfile: php-7.2/Dockerfile
+      context: .
+  php-7.2-wordpress:
+    image: ghcr.io/pinbn/php-docker:7.2-wordpress
+    build: 
+      dockerfile: php-7.2-wordpress/Dockerfile
       context: .
   php-7.3:
     image: ghcr.io/pinbn/php-docker:7.3
     build: 
       dockerfile: php-7.3/Dockerfile
       context: .
+  php-7.3-wordpress:
+    image: ghcr.io/pinbn/php-docker:7.3-wordpress
+    build: 
+      dockerfile: php-7.3-wordpress/Dockerfile
+      context: .
   php-7.4:
     image: ghcr.io/pinbn/php-docker:7.4
     build: 
       dockerfile: php-7.4/Dockerfile
+      context: .
+  php-7.4-wordpress:
+    image: ghcr.io/pinbn/php-docker:7.4-wordpress
+    build: 
+      dockerfile: php-7.4-wordpress/Dockerfile
       context: .
   php-8.0:
     image: ghcr.io/pinbn/php-docker:8.0
     build: 
       dockerfile: php-8.0/Dockerfile
       context: .
+  php-8.0-wordpress:
+    image: ghcr.io/pinbn/php-docker:8.0-wordpress
+    build: 
+      dockerfile: php-8.0-wordpress/Dockerfile
+      context: .
   php-8.1:
     image: ghcr.io/pinbn/php-docker:8.1
     build: 
       dockerfile: php-8.1/Dockerfile
+      context: .
+  php-8.1-wordpress:
+    image: ghcr.io/pinbn/php-docker:8.1-wordpress
+    build: 
+      dockerfile: php-8.1-wordpress/Dockerfile
       context: .
   plain:
     image: ghcr.io/pinbn/php-docker:plain
