@@ -14,7 +14,7 @@ RUN apt-get update && \
     wget -qO - "https://nginx.org/keys/nginx_signing.key" | apt-key add - && \
     apt-get update && \
     apt-get dist-upgrade -y && \
-    apt-get install -y nginx php7.1-common memcached php7.1-memcache php-pear php7.1-cli \
+    apt-get install -y nginx php7.1-common memcached php7.1-memcache php7.1-curl php-pear php7.1-cli \
       php7.1-fpm php7.1-gd php7.1-geoip php7.1-json php7.1-mysql php7.1-opcache php7.1-mbstring php7.1-zip \
       php7.1-xml php7.1-pgsql php7.1-pspell php7.1-readline php7.1-tidy php7.1-bcmath php7.1-gmp && \
     dpkg -r wget && \

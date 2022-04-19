@@ -14,7 +14,7 @@ RUN apt-get update && \
     wget -qO - "https://nginx.org/keys/nginx_signing.key" | apt-key add - && \
     apt-get update && \
     apt-get dist-upgrade -y && \
-    apt-get install -y nginx php5.6-common memcached php5.6-memcache php-pear php5.6-cli \
+    apt-get install -y nginx php5.6-common memcached php5.6-memcache php5.6-curl php-pear php5.6-cli \
       php5.6-fpm php5.6-gd php5.6-geoip php5.6-json php5.6-mysql php5.6-opcache php5.6-mbstring php5.6-zip \
       php5.6-xml php5.6-pgsql php5.6-pspell php5.6-readline php5.6-tidy php5.6-bcmath php5.6-gmp && \
     dpkg -r wget && \

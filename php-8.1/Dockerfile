@@ -14,7 +14,7 @@ RUN apt-get update && \
     wget -qO - "https://nginx.org/keys/nginx_signing.key" | apt-key add - && \
     apt-get update && \
     apt-get dist-upgrade -y && \
-    apt-get install -y nginx php8.1-common memcached php8.1-memcache php-pear php8.1-cli \
+    apt-get install -y nginx php8.1-common memcached php8.1-memcache php8.1-curl php-pear php8.1-cli \
       php8.1-fpm php8.1-gd php8.1-mysql php8.1-opcache php8.1-mbstring php8.1-zip \
       php8.1-xml php8.1-pgsql php8.1-pspell php8.1-readline php8.1-tidy php8.1-bcmath php8.1-gmp && \
     dpkg -r wget && \
