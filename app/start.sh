@@ -10,8 +10,8 @@ replace_from_env () {
     export "${var_name}" && \
     vars="'\$${var_name}'" && \
     # echo "envsubst $vars < nginx-site.conf > nginx-site.conf.tmp" && \
-    /usr/bin/envsubst $vars < nginx-site.conf > nginx-site.conf.tmp && mv /app/nginx-site.conf.tmp /app/nginx-site.conf && \
-    /usr/bin/envsubst $vars < php.ini > php.ini.tmp && mv /app/php.ini.tmp /app/php.ini
+    /usr/bin/envsubst $vars < /app/nginx-site.conf > /app/nginx-site.conf.tmp && mv /app/nginx-site.conf.tmp /app/nginx-site.conf && \
+    /usr/bin/envsubst $vars < /app/php.ini > /app/php.ini.tmp && mv /app/php.ini.tmp /app/php.ini
   )
 }
 
@@ -43,4 +43,4 @@ then
 fi
 
 # now run for real
-# /usr/bin/supervisord -c /app/supervisord.conf
+/usr/bin/supervisord -c /app/supervisord.conf
