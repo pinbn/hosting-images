@@ -1,9 +1,33 @@
 #!/bin/bash
 
 # environment replacements
+replace_from_env () {
+  var_name=$1
+  default_value=$2
+  [[ ! -z "${!var_name}" ]] || printf -v "$var_name" '%s' "${default_value}"
+  (
+    echo "${var_name} = '${!var_name}'"
+    export "${var_name}" && \
+    vars="'\$${var_name}'" && \
+    # echo "envsubst $vars < nginx-site.conf > nginx-site.conf.tmp" && \
+    /usr/bin/envsubst $vars < nginx-site.conf > nginx-site.conf.tmp && mv /app/nginx-site.conf.tmp /app/nginx-site.conf && \
+    /usr/bin/envsubst $vars < php.ini > php.ini.tmp && mv /app/php.ini.tmp /app/php.ini
+  )
+}
+
 if [ -x "$(command -v php)" ]
 then
-  php -n -B /app/functions.php -d short_open_tag=On -f /app/php.ini.php > /app/php.ini
+  replace_from_env "php_max_execution_time" "300"
+  replace_from_env "php_input_time" "300"
+  replace_from_env "php_memory_limit" "20M"
+  replace_from_env "php_upload_max_filesize" "20M"
+  replace_from_env "php_timezone" "America/Denver"
+  replace_from_env "php_allow_url_fopen" "Off"
+  replace_from_env "php_smtp_server" "localhost"
+  replace_from_env "php_smtp_port" "25"
+  replace_from_env "php_smtp_log" "/var/log/php.mail.log"
+  replace_from_env "php_session_handler" "files"
+  replace_from_env "php_session_path" "/tmp"
 fi 
 
 if [[ ! -z "${NGINX_UID}" ]]
@@ -19,4 +43,4 @@ then
 fi
 
 # now run for real
-/usr/bin/supervisord -c /app/supervisord.conf
+# /usr/bin/supervisord -c /app/supervisord.conf

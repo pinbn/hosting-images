@@ -7,7 +7,7 @@ VOLUME /var/log/nginx
 # install our deps
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -y supervisor bash dos2unix curl wget software-properties-common tzdata && \
+    apt-get install -y supervisor bash dos2unix curl wget tzdata gnupg gettext-base && \
     wget -qO - https://nginx.org/keys/nginx_signing.key | apt-key add - && \
     echo "deb https://nginx.org/packages/mainline/ubuntu/ focal nginx" > /etc/apt/sources.list.d/nginx.list && \
     apt-get update && \
@@ -17,7 +17,6 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app
-COPY ./app/plain-overrides /app 
 RUN dos2unix /app/*
 
 CMD ["/bin/bash","/app/start.sh"]

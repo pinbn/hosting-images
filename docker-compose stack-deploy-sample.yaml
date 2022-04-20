@@ -22,7 +22,21 @@ services:
       - /data/www/client/sitename/site:/var/www/html
       - /data/www/client/sitename/logs:/var/log/nginx
     environment:
-      # This is default: - NGINX_USER=www-data
+      # These are defaults and apply to all images:
+      - NGINX_UID=33
+      - NGINX_GID=33
+      # These are defaults and only apply to php-* images (not plain):
+      - php_max_execution_time=300
+      - php_input_time=300
+      - php_memory_limit=20M
+      - php_upload_max_filesize=20M
+      - php_timezone=America/Denver
+      - php_allow_url_fopen=Off
+      - php_smtp_server=localhost
+      - php_smtp_port=25
+      - php_smtp_log=/var/log/php.mail.log
+      - php_session_handler=files
+      - php_session_path=/tmp
 
 networks:
     traefik:
