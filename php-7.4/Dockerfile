@@ -17,7 +17,7 @@ RUN apt-get update && \
     apt-get install -y nginx php7.4-common memcached php7.4-memcache php7.4-curl php-pear php7.4-cli \
       php7.4-fpm php7.4-gd php7.4-geoip php7.4-json php7.4-mysql php7.4-opcache php7.4-mbstring php7.4-zip \
       php7.4-xml php7.4-pgsql php7.4-pspell php7.4-readline php7.4-tidy php7.4-bcmath php7.4-gmp && \
-    dpkg -r wget && \
+    dpkg -r wget e2fsprogs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app

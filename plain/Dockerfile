@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y nginx && \
-    dpkg -r wget && \
+    dpkg -r wget e2fsprogs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app
