@@ -15,12 +15,14 @@ replace_from_env () {
   )
 }
 
+# used by nginx and PHP, so always render
+replace_from_env "php_upload_max_filesize" "20M"
+
 if [ -x "$(command -v php)" ]
 then
   replace_from_env "php_max_execution_time" "300"
   replace_from_env "php_input_time" "300"
   replace_from_env "php_memory_limit" "20M"
-  replace_from_env "php_upload_max_filesize" "20M"
   replace_from_env "php_timezone" "America/Denver"
   replace_from_env "php_allow_url_fopen" "Off"
   replace_from_env "php_smtp_server" "localhost"
