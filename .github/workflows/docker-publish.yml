@@ -83,6 +83,9 @@ jobs:
           - dockerfile: ./plain/Dockerfile
             image: ghcr.io/${{ github.repository }}:plain
             tag: plain
+          - dockerfile: ./mono/Dockerfile
+            image: ghcr.io/${{ github.repository }}:mono
+            tag: mono
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

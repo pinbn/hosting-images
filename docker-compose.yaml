@@ -86,3 +86,9 @@ services:
     build: 
       dockerfile: plain/Dockerfile
       context: .
+  mono:
+    image: ghcr.io/pinbn/hosting-docker:mono
+    build: 
+      dockerfile: mono/Dockerfile
+      context: .
+  
