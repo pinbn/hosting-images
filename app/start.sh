@@ -11,7 +11,9 @@ replace_from_env () {
     vars="'\$${var_name}'" && \
     # echo "envsubst $vars < nginx-site.conf > nginx-site.conf.tmp" && \
     /usr/bin/envsubst $vars < /app/nginx-site.conf > /app/nginx-site.conf.tmp && mv /app/nginx-site.conf.tmp /app/nginx-site.conf && \
-    /usr/bin/envsubst $vars < /app/php.ini > /app/php.ini.tmp && mv /app/php.ini.tmp /app/php.ini
+    if [ -f "/app/php.ini" ]; then
+      /usr/bin/envsubst $vars < /app/php.ini > /app/php.ini.tmp && mv /app/php.ini.tmp /app/php.ini;
+    fi
   )
 }
 
