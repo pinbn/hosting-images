@@ -14,7 +14,6 @@ There are environment variables you can set for the PHP images (yes, case sensit
   - php_max_execution_time 300
   - php_input_time 300
   - php_memory_limit 20M
-  - php_upload_max_filesize 20M
   - php_timezone America/Denver
   - php_allow_url_fopen Off
   - php_smtp_server localhost
@@ -22,3 +21,6 @@ There are environment variables you can set for the PHP images (yes, case sensit
   - php_smtp_log /var/log/php.mail.log
   - php_session_handler files
   - php_session_path /tmp
+
+Additionally, although this has "php" in the name, it's passed to nginx config as well as PHP (if applicable) and applies to all images:
+  - php_upload_max_filesize 20M
