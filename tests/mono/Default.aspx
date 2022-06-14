@@ -6,6 +6,7 @@
     <title>Default</title>
 </head>
 <body>
+    <p>Success</p>
     <ul>
         <li><a class="testlink" href="/Test1.aspx">Test: WebForms</a></li>
         <li><a class="testlink" href="/TestService.asmx/Test">Test: SOAP WebService GET</a></li>
