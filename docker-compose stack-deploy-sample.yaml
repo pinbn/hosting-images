@@ -25,11 +25,11 @@ services:
       # These are defaults and apply to all images:
       - NGINX_UID=33
       - NGINX_GID=33
+      - upload_max_filesize=20M
       # These are defaults and only apply to php-* images (not plain):
       - php_max_execution_time=300
       - php_input_time=300
       - php_memory_limit=20M
-      - php_upload_max_filesize=20M
       - php_timezone=America/Denver
       - php_allow_url_fopen=Off
       - php_smtp_server=localhost

@@ -10,6 +10,9 @@ Mount `/var/www/html` to your website's content directory. Normal site logs are 
 There is an example docker compose file showing how to use the container with a Traefik 1 or 2 router. No SSL termination is done within this container.
 
 # Environment Variables
+These are the global variables and apply to all images:
+  - upload_max_filesize 20M
+
 There are environment variables you can set for the PHP images (yes, case sensitive, lowercase):
   - php_max_execution_time 300
   - php_input_time 300
@@ -21,6 +24,5 @@ There are environment variables you can set for the PHP images (yes, case sensit
   - php_smtp_log /var/log/php.mail.log
   - php_session_handler files
   - php_session_path /tmp
+  - DEPRECATED: php_upload_max_filesize (now known as `upload_max_filesize`)
 
-Additionally, although this has "php" in the name, it's passed to nginx config as well as PHP (if applicable) and applies to all images:
-  - php_upload_max_filesize 20M
