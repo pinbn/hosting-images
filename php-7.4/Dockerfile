@@ -20,7 +20,7 @@ RUN apt-get update && \
     dpkg -r wget e2fsprogs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY ./app /app
+COPY ./app/common /app
 COPY ./app/php /app
 RUN ln -s /usr/sbin/php-fpm7.4 /app/php-fpm && dos2unix /app/*
 CMD ["/bin/bash","/app/start.sh"]

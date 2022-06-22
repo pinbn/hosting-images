@@ -17,12 +17,28 @@ replace_from_env () {
   )
 }
 
-# used by nginx and PHP, so always render
-replace_from_env "php_upload_max_filesize" "20M"
+# Set defaults:
+${php_max_execution_time:="300"}
 
-if [ -x "$(command -v php)" ]
+# one compatibility call:
+${upload_max_filesize:="${php_upload_max_filesize}"}
+${upload_max_filesize:="20M"}
+# end compatibility
+
+# Global:
+replace_from_env "upload_max_filesize" "20M"
+
+# If proxy image:
+if [ -f "/app/proxy.ini" ]
 then
-  replace_from_env "php_max_execution_time" "300"
+  replace_from_env "proxy_pass" ""
+  replace_from_env "proxy_ssl_verify" "on"
+fi
+
+# If PHP image:
+if [ -f "/app/php.ini" ]
+then
+  replace_from_env "php_max_execution_time" "290"
   replace_from_env "php_input_time" "300"
   replace_from_env "php_memory_limit" "20M"
   replace_from_env "php_timezone" "America/Denver"
@@ -34,6 +50,7 @@ then
   replace_from_env "php_session_path" "/tmp"
 fi 
 
+# set user/group IDs on container:
 if [[ ! -z "${NGINX_UID}" ]]
 then
   usermod -u ${NGINX_UID} www-data

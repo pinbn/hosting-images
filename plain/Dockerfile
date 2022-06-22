@@ -16,7 +16,7 @@ RUN apt-get update && \
     dpkg -r wget e2fsprogs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY ./app /app
+COPY ./app/common /app
 RUN dos2unix /app/*
 
 CMD ["/bin/bash","/app/start.sh"]
