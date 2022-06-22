@@ -40,6 +40,9 @@ services:
       # These are for the proxy image
       # - proxy_pass=https://google.com
       # - proxy_ssl_verify=on
+      # These are for the redirect image
+      # - redirect_url=https://google.com
+      # - redirect_code=302
 
 networks:
     traefik:

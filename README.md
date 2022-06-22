@@ -29,3 +29,8 @@ There are environment variables you can set for the PHP images (yes, case sensit
 For the proxy image, these are the environment variables:
   - proxy_pass `(put a URL here)`
   - proxy_ssl_verify on
+
+For the proxy image, these are the environment variables:
+  - redirect_url `(put a URL here)`
+  - redirect_code 302
+  

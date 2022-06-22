@@ -96,4 +96,9 @@ services:
     build: 
       dockerfile: proxy/Dockerfile
       context: .
+  redirect:
+    image: ghcr.io/pinbn/hosting-images:redirect
+    build: 
+      dockerfile: redirect/Dockerfile
+      context: .
   

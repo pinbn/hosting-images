@@ -27,6 +27,13 @@ then
   replace_from_env "proxy_inject_upstream_host" "${proxy_inject_upstream_host:-"\$host"}"
 fi
 
+# If redirect image:
+if [ -f "/app/redirect.ini" ]
+then
+  replace_from_env "redirect_url" "${redirect_url:-"https://google.com"}"
+  replace_from_env "redirect_code" "${redirect_code:="302"}"
+fi
+
 # If PHP image:
 if [ -f "/app/php.ini" ]
 then

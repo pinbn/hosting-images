@@ -89,6 +89,9 @@ jobs:
           - dockerfile: ./proxy/Dockerfile
             image: ghcr.io/${{ github.repository }}:proxy
             tag: proxy
+          - dockerfile: ./redirect/Dockerfile
+            image: ghcr.io/${{ github.repository }}:redirect
+            tag: redirect
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
