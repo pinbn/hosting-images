@@ -37,6 +37,9 @@ services:
       - php_smtp_log=/var/log/php.mail.log
       - php_session_handler=files
       - php_session_path=/tmp
+      # These are for the proxy image
+      # - proxy_pass=https://google.com
+      # - proxy_ssl_verify=on
 
 networks:
     traefik:

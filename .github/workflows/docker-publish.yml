@@ -86,6 +86,9 @@ jobs:
           - dockerfile: ./mono/Dockerfile
             image: ghcr.io/${{ github.repository }}:mono
             tag: mono
+          - dockerfile: ./proxy/Dockerfile
+            image: ghcr.io/${{ github.repository }}:proxy
+            tag: proxy
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

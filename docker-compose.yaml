@@ -91,4 +91,9 @@ services:
     build: 
       dockerfile: mono/Dockerfile
       context: .
+  proxy:
+    image: ghcr.io/pinbn/hosting-images:proxy
+    build: 
+      dockerfile: proxy/Dockerfile
+      context: .
   
