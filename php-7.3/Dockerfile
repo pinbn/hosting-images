@@ -22,5 +22,6 @@ RUN apt-get update && \
 
 COPY ./app/common /app
 COPY ./app/php /app
-RUN ln -s /usr/sbin/php-fpm7.3 /app/php-fpm && dos2unix /app/*
+RUN ln -s /usr/sbin/php-fpm7.3 /app/php-fpm && dos2unix /app/* && chmod a+x /app/*.sh
+
 CMD ["/bin/bash","/app/start.sh"]

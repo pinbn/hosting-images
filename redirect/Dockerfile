@@ -18,6 +18,6 @@ RUN apt-get update && \
 
 COPY ./app/common /app
 COPY ./app/redirect /app
-RUN dos2unix /app/*
+RUN dos2unix /app/* && chmod a+x /app/*.sh
 
 CMD ["/bin/bash","/app/start.sh"]

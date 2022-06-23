@@ -19,6 +19,6 @@ RUN apt-get update && \
 
 COPY ./app /app
 COPY ./app/mono /app
-RUN dos2unix /app/*
+RUN dos2unix /app/* && chmod a+x /app/*.sh
 
 CMD ["/bin/bash","/app/start.sh"]

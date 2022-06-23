@@ -23,5 +23,6 @@ RUN apt-get update && \
 COPY ./app/common /app
 COPY ./app/php /app
 COPY ./app/php-wordpress /app
-RUN ln -s /usr/sbin/php-fpm7.0 /app/php-fpm && dos2unix /app/*
+RUN ln -s /usr/sbin/php-fpm7.0 /app/php-fpm && dos2unix /app/* && chmod a+x /app/*.sh
+
 CMD ["/bin/bash","/app/start.sh"]
