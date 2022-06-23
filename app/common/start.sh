@@ -62,5 +62,10 @@ then
   echo "Using specified nginx group ID: ${NGINX_GID}"
 fi
 
-# now run for real
+# now run for real, first any initialization script and then the real deal
+if [ -f "/app/init.sh" ]
+then
+  . /app/init.sh
+fi
+
 /usr/bin/supervisord -c /app/supervisord.conf
