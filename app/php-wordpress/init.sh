@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d "/var/www/wp-content/" ]
+if [ ! -d "/var/www/html/wp-content/" ]
 then
   echo "Downloading latest Wordpress zip file...";
   cd /var/www;
