@@ -47,6 +47,7 @@ then
   replace_from_env "php_smtp_log" "${php_smtp_log:="/var/log/php.mail.log"}"
   replace_from_env "php_session_handler" "${php_session_handler:="files"}"
   replace_from_env "php_session_path" "${php_session_path:="/tmp"}"
+  replace_from_env "php_max_input_vars" "${php_max_input_vars:="1000"}"
 fi 
 
 # set user/group IDs on container:
