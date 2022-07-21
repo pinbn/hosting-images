@@ -9,9 +9,9 @@ replace_from_env () {
     echo "${var_name} = '${var_value}'"
     export "${var_name}" && \
     vars="'\$${var_name}'" && \
-    for i in `ls /app/*.conf /app/*.ini` \
+    for i in `ls /app/*.conf /app/*.ini`; \
       do \
-        /usr/bin/envsubst $vars < $i > $i.tmp && mv $i.tmp $i && \
+        /usr/bin/envsubst $vars < $i > $i.tmp && mv $i.tmp $i; \
       done
   )
 }
