@@ -9,10 +9,10 @@ replace_from_env () {
     echo "${var_name} = '${var_value}'"
     export "${var_name}" && \
     vars="'\$${var_name}'" && \
-    /usr/bin/envsubst $vars < /app/nginx-site.conf > /app/nginx-site.conf.tmp && mv /app/nginx-site.conf.tmp /app/nginx-site.conf && \
-    if [ -f "/app/php.ini" ]; then
-      /usr/bin/envsubst $vars < /app/php.ini > /app/php.ini.tmp && mv /app/php.ini.tmp /app/php.ini;
-    fi
+    for i in `ls /app/*.conf /app/*.ini` \
+      do \
+        /usr/bin/envsubst $vars < $i > $i.tmp && mv $i.tmp $i && \
+      done
   )
 }
 
