@@ -35,3 +35,9 @@ For the proxy image, these are the environment variables:
   - redirect_url `(put a URL here)`
   - redirect_code 302
   
+For the PHP Wordpress image:
+  - `wordpress_is_multisite`: if this environment variable is non-empty/null, we use the alternate multisite compatible config instead.
+
+# Note about ENVIRONMENT VARIABLE naming
+Yes, I know, normally environment variables are UPPERCASE.
+
