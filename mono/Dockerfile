@@ -18,6 +18,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./app /app
+COPY ./app/common /app
 COPY ./app/mono /app
 RUN dos2unix /app/* && chmod a+x /app/*.sh
 
