@@ -15,4 +15,7 @@ if [[ ! -z "${wordpress_is_multisite}" ]]
 then
   mv /app/nginx-site-multisite.conf /app/nginx-site.conf
   echo "Using Wordpress multisite alternate nginx config."
+else
+  rm /app/nginx-site-multisite.conf
+  echo "Removed unused multisite nginx config."
 fi
