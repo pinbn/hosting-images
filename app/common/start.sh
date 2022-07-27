@@ -1,28 +1,16 @@
 #!/bin/bash
 
 # environment replacements
-replace_from_env () {
-  var_name=$1
-  var_value=$2
-  printf -v "$var_name" '%s' "${var_value}"
-  (
-    echo "${var_name} = '${var_value}'"
-    export "${var_name}" && \
-    vars="'\$${var_name}'" && \
-    for i in `ls /app/*.conf /app/*.ini`; \
-      do \
-        /usr/bin/envsubst $vars < $i > $i.tmp && mv $i.tmp $i; \
-      done
-  )
-}
+source /app/functions.sh
 
 # ensure they exist so we don't error out below if we aren't using pre/post init scripts
 mkdir -p /app /app/preinit /app/postinit
+chmod -f a+rx /app/preinit/*.sh /app/postinit/*.sh
 
 # first any pre-initialization scripts (may set default variables)
 if [ -f "/app/preinit/*.sh" ]
 then
-  for i in `ls /app/preinit/*.sh`; do . $i; done
+  for i in `ls /app/preinit/*.sh`; do source $i; done
 fi
 
 # Global:
@@ -50,7 +38,7 @@ then
 fi
 if [ -f "/app/postinit/*.sh" ]
 then
-  for i in `ls /app/postinit/*.sh`; do . $i; done
+  for i in `ls /app/postinit/*.sh`; do source $i; done
 fi
 
 /usr/bin/supervisord -c /app/supervisord.conf

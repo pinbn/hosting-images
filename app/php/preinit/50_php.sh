@@ -1,3 +1,5 @@
+#!/bin/bash
+source /app/functions.sh
 
   replace_from_env "php_max_execution_time" "${php_max_execution_time:="300"}"
   replace_from_env "php_input_time" "${php_input_time:="300"}"

@@ -1,4 +1,5 @@
 #!/bin/bash
+source /app/functions.sh
 
 if [ ! -d "/var/www/html/wp-content/" ]
 then
