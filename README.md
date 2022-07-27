@@ -26,6 +26,7 @@ There are environment variables you can set for the PHP images (yes, case sensit
   - php_session_handler files
   - php_session_path /tmp
   - php_max_input_vars 1000
+  - PHP_ERROR_LOG syslog
   - DEPRECATED: php_upload_max_filesize (now known as `upload_max_filesize`)
 
 For the proxy image, these are the environment variables:
