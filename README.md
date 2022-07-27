@@ -12,6 +12,7 @@ There is an example docker compose file showing how to use the container with a 
 # Environment Variables
 These are the global variables and apply to all images:
   - upload_max_filesize 20M _(but this also applies to php's max POST size as well)_
+  - NGINX_LISTEN_PORT 80
 
 There are environment variables you can set for the PHP images (yes, case sensitive, lowercase):
   - php_max_execution_time 300

@@ -23,6 +23,7 @@ then
 fi
 
 # Global:
+replace_from_env "NGINX_LISTEN_PORT" "${NGINX_LISTEN_PORT:="80"}"
 replace_from_env "upload_max_filesize" "${upload_max_filesize:="20M"}"
 
 # If proxy image:
