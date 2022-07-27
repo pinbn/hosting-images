@@ -72,7 +72,12 @@ fi
 # now run for real, first any initialization script and then the real deal
 if [ -f "/app/init.sh" ]
 then
+  echo "Using /app/init.sh is DEPRECATED - please use preinit.sh or postinit.sh instead!"
   . /app/init.sh
+fi
+if [ -f "/app/postinit.sh" ]
+then
+  . /app/postinit.sh
 fi
 
 /usr/bin/supervisord -c /app/supervisord.conf
