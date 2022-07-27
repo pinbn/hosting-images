@@ -8,8 +8,7 @@ mkdir -p /app /app/preinit /app/postinit
 chmod -f a+rx /app/preinit/*.sh /app/postinit/*.sh
 
 # first any pre-initialization scripts (may set default variables)
-if [ -f "/app/preinit/*.sh" ]
-then
+if [ "$(ls -A /app/preinit/*.sh)" ]; then
   for i in `ls /app/preinit/*.sh`; do source $i; done
 fi
 
@@ -36,8 +35,7 @@ then
   echo "Using /app/init.sh is DEPRECATED - please use preinit.sh or postinit.sh instead!"
   . /app/init.sh
 fi
-if [ -f "/app/postinit/*.sh" ]
-then
+if [ "$(ls -A /app/postinit/*.sh)" ]; then
   for i in `ls /app/postinit/*.sh`; do source $i; done
 fi
 
