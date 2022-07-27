@@ -22,7 +22,7 @@ mkdir -p /app /app/preinit /app/postinit
 # first any pre-initialization scripts (may set default variables)
 if [ -f "/app/preinit/*.sh" ]
 then
-  for i in `ls /app/preinit/*.sh'; do . $i; done
+  for i in `ls /app/preinit/*.sh`; do . $i; done
 fi
 
 # Global:
@@ -50,7 +50,7 @@ then
 fi
 if [ -f "/app/postinit/*.sh" ]
 then
-  for i in `ls /app/postinit/*.sh'; do . $i; done
+  for i in `ls /app/postinit/*.sh`; do . $i; done
 fi
 
 /usr/bin/supervisord -c /app/supervisord.conf
