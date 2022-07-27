@@ -16,10 +16,13 @@ replace_from_env () {
   )
 }
 
-# first any pre-initialization script (may set default variables)
-if [ -f "/app/preinit.sh" ]
+# ensure they exist so we don't error out below if we aren't using pre/post init scripts
+mkdir -p /app /app/preinit /app/postinit
+
+# first any pre-initialization scripts (may set default variables)
+if [ -f "/app/preinit/*.sh" ]
 then
-  . /app/preinit.sh
+  for i in `ls /app/preinit/*.sh'; do . $i; done
 fi
 
 # Global:
@@ -45,9 +48,9 @@ then
   echo "Using /app/init.sh is DEPRECATED - please use preinit.sh or postinit.sh instead!"
   . /app/init.sh
 fi
-if [ -f "/app/postinit.sh" ]
+if [ -f "/app/postinit/*.sh" ]
 then
-  . /app/postinit.sh
+  for i in `ls /app/postinit/*.sh'; do . $i; done
 fi
 
 /usr/bin/supervisord -c /app/supervisord.conf
