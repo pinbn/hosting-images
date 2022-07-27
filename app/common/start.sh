@@ -16,6 +16,12 @@ replace_from_env () {
   )
 }
 
+# first any pre-initialization script (may set default variables)
+if [ -f "/app/preinit.sh" ]
+then
+  . /app/preinit.sh
+fi
+
 # Global:
 replace_from_env "upload_max_filesize" "${upload_max_filesize:="20M"}"
 
