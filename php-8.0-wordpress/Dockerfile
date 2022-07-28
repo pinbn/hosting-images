@@ -15,7 +15,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y nginx php8.0-common memcached php8.0-memcache php8.0-curl php-pear php8.0-cli \
-      php8.0-fpm php8.0-gd php8.0-mysql php8.0-opcache php8.0-mbstring php8.0-zip \
+      php8.0-fpm php8.0-gd php8.0-mysql php8.0-opcache php8.0-mbstring php8.0-zip php-maxminddb \
       php8.0-xml php8.0-pgsql php8.0-pspell php8.0-readline php8.0-tidy php8.0-bcmath php8.0-gmp && \
     dpkg -r e2fsprogs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
